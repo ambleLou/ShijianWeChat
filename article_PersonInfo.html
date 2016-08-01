@@ -1,0 +1,330 @@
+<article data-role="article" id="article_PersonInfo" data-scroll="verticle" style="bottom:60px;">
+    <div class="scroller">
+        <div class="titlebar">
+            <h1>个人简历</h1>
+        </div>
+
+        <form autocomplete="off" oninput="range_output.value=parseInt(range.value)" class="form-common"
+              name="UserForm" action="userDetail_chk.php" method="post">
+            <label class="label-left ">
+                <i class="fa fa-user-secret fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;昵称
+            </label>
+            <label class="label-right">
+                <input  id="UserName" name="UserName" type="text" placeholder="请输入昵称(英文/数字)"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-user fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;真实姓名<span style="color: red">*
+            </span></label>
+            <label class="label-right">
+                <input id="RealName" name="RealName" type="text"  placeholder="请输入真实姓名"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-credit-card fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;身份证<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="IDCard" name="IDCard" type="text" placeholder="请输入身份证号码"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-qq fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;QQ号码<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="QQNum" name="QQNum" type="text" placeholder="请输入QQ号码"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-intersex fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;性别<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <div data-role="radio">
+                    <label class="black">男</label>
+                    <input id="Sex_0" type="radio" name="Sex" value="0"/>
+                </div>
+                <div data-role="radio">
+                    <label class="black">女</label>
+                    <input id="Sex_1" type="radio" name="Sex" value="1"/>
+                </div>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-line-chart fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;身高<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="Height" name="Height" type="text" placeholder="请输入身高(cm)"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-balance-scale fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;体重<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="Weight" name="Weight" type="text" placeholder="请输入体重(Kg)"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-university fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;所在院校
+            </label>
+            <label class="label-right">
+                <input id="School" name="School" type="text" placeholder="请输入学校名称"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-book fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;专业方向
+            </label>
+            <label class="label-right">
+                <input id="Major" name="Major" type="text" placeholder="请输入专业方向"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-tags fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;求职意向
+            </label>
+            <label class="label-right">
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_1" value="1"/>
+                    <label for="JobType_1" class="black">派单员</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_2" value="2"/>
+                    <label for="JobType_2" class="black">促销</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_3" value="3"/>
+                    <label for="JobType_3" class="black">客服</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_4" value="4"/>
+                    <label for="JobType_4" class="black">群众演员</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_5" value="5"/>
+                    <label for="JobType_5" class="black">礼仪</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_6" value="6"/>
+                    <label for="JobType_6" class="black">服务员</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_7" value="7"/>
+                    <label for="JobType_7" class="black">问卷调查</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_8" value="8"/>
+                    <label for="JobType_8" class="black">推广</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_9" value="9"/>
+                    <label for="JobType_9" class="black">试玩</label>
+                </div>
+                <div data-role="checkbox">
+                    <input name="JobType[]" type="checkbox" id="JobType_10" value="10"/>
+                    <label for="JobType_10" class="black">其他</label>
+                </div>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-paperclip fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;自我介绍:
+            </label>
+            <label class="label-right"></label>
+            <label class="label-left" style="width: 100%">
+                <div class="card">
+                    <textarea id="Introduct" name="Introduct" rows="5" class="noborder" placeholder="请输入你的优点，少于300字"></textarea>
+                </div>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-yen fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;支付宝账号
+            </label>
+            <label class="label-right">
+                <input id="AliPay" name="AliPay" type="text" placeholder="请输入支付宝账号"/>
+            </label>
+            <hr/>
+            <label class="label-left ">
+                <i class="fa fa-medkit fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;健康证</span>
+            </label>
+            <label class="label-right">
+                <div data-role="radio">
+                    <label class="black">无</label>
+                    <input id="Health_0" type="radio" name="Health" value="0"/>
+                </div>
+                <div data-role="radio">
+                    <label class="black">有</label>
+                    <input id="Health_1" type="radio" name="Health" value="1"/>
+                </div>
+            </label>
+            <hr/>
+            <div class="card noborder">
+                <a id="save" class="button submit width-full text-center" style="background-color: #1abc9c">
+                    <i class="fa fa-check-circle-o fa-adjust" style="color: #FFFFFF"></i>
+                    保存信息
+                </a>
+            </div>
+        </form>
+    </div>
+</article>
+
+<script>
+
+
+    $('#article_PersonInfo').on('articleload', function(){
+        $.ajax({
+            type: 'GET',
+            url: "userDetail.php",
+            dataType: 'json',
+            //data: {JobID: (JobID), CurPage: (CurPage), PageSize: (PageSize)},
+            success: function (data) {
+                $.each(data, function(i, item){
+                    //$('#RealName').attr("value",JSON.parse(ret).RealName);
+                     $('#UserName').attr("value",data[i].UserName);
+                     $('#RealName').attr("value",data[i].RealName);
+
+                    $('#IDCard').attr("value",data[i].IDCard);
+                    $('#QQNum').attr("value",data[i].QQNum);
+                    if(0==parseInt(data[i].Sex)){
+                        $("#Sex_0").attr("checked","checked" );
+                    }else{
+                        $("#Sex_1").attr("checked","checked" );
+                    }
+                    $('#Height').attr("value",data[i].Height);
+                    $('#Weight').attr("value",data[i].Weight);
+                    $('#School').attr("value",data[i].School);
+                    $('#Major').attr("value",data[i].Major);
+                    var boxes = document.getElementsByName("JobType[]");
+                    var val = data[i].Job.split(","); //字符分割
+                    for(k=0;k<boxes.length;k++){
+                        for(j=0;j<val.length;j++){
+                            if(boxes[k].value == val[j]){
+                                boxes[k].checked = true;
+                                break;
+                            }
+                        }
+                    }
+                    $('#Introduct').html(data[i].Introduct);
+                    $('#AliPay').attr("value",data[i].AliPay);
+                    if(0==parseInt(data[i].Health)){
+                        $("#Health_0").attr("checked","checked" );
+                    }else{
+                        $("#Health_1").attr("checked","checked" );
+                    }
+                });
+
+
+            }
+        });
+
+
+    });
+    //为空验证
+    function ValidateRequired(field, alerttxt) {
+        with (field) {
+            if (value == null || value == "") {
+                alert(alerttxt);
+                return false;
+            }
+            return true;
+        }
+    }
+    //单选多选验证
+    function ValidateRequiredByArray(field, alerttxt) {
+        var ischecked = 0;
+        for (var i = 0; i < field.length; i++) {
+            if (field[i].checked)
+                ischecked = 1;
+        }
+        if (ischecked == 0) {
+            alert(alerttxt);
+            return false;
+        }
+        return true;
+    }
+    //正则验证
+    function VerificationReg(field, regStr, alerttxt) {
+        var reg = eval(regStr);
+        with (field) {
+            if (value == null || value == "")
+                return true;
+            if (!reg.test(value)) {
+                alert(alerttxt);
+                return false;
+            }
+            else {
+                return true;
+            }
+        }
+    }
+
+    //输入验证
+    $('#save').on(A.options.clickEvent, function Verification() {
+        if (!ValidateRequired(document.UserForm.RealName, "请输入真实姓名!"))
+            return false;
+        else if (!ValidateRequired(document.UserForm.IDCard, "请输入身份证号!"))
+            return false;
+        else if (!ValidateRequired(document.UserForm.QQNum, "请输入QQ号码!"))
+            return false;
+        else if (!ValidateRequiredByArray(document.UserForm.Sex, "请选择性别!"))
+            return false;
+        else if (!ValidateRequired(document.UserForm.Height, "请输入身高!"))
+            return false;
+        else if (!ValidateRequired(document.UserForm.Weight, "请输入体重!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.UserName, '/^[A-Za-z0-9]+$/g', "请输入正确的昵称!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.RealName, '/^[\u4E00-\u9FA5]{2,5}(?:·[\u4E00-\u9FA5]{2,5})*$/g', "请输入正确的真实姓名!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.IDCard, '/^(\\d{15}|\\d{18}|\\d{17}(\\d|X|x))$/g', "请输入正确的身份证号!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.QQNum, '/^\\d{5,10}$/g', "请输入正确的QQ号码!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.Height, '/^(1[0-9][0-9]|2[0-5][0-9])$/g', "请输入正确的身高!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.Weight, '/^([5-9][0-9]|1[0-9][0-9])$/g', "请输入正确的体重!"))
+            return false;
+        else if (!VerificationReg(document.UserForm.Introduct, '/^\\S{0,300}$/g', "请输入少于300字的介绍!"))
+            return false;
+
+
+       /* var Jobs = "";
+        $('input[name="Jobs"]:checked').each(function(){
+            Jobs = Jobs+$(this).val()+",";
+        });
+        Jobs = Jobs.substring(0,Jobs.length-1);
+        $.post("userDetail_chk.php",
+                {
+                    UserName:$("#UserName").val(),
+                    RealName:$("#RealName").val(),
+                    IDCard:$("#IDCard").val(),
+                    QQNum:$("#QQNum").val(),
+                    Sex:$("input[name='Sex']").val(),
+                    Height:$("#Height").val(),
+                    Weight:$("#Weight").val(),
+                    School:$("#School").val(),
+                    Major:$("#Major").val(),
+                    Jobs:Jobs,
+                    Introduct:$("#Introduct").val(),
+                    AliPay:$("#AliPay").val(),
+                    Health:$("input[name='Health']").val()
+                }
+                ,function(ret){
+                    if(ret=="true"){
+                        A.showToast("保存成功!",3);
+                    }
+                    else
+                        A.showToast(ret);
+                });*/
+
+        document.UserForm.submit();
+    });
+</script>

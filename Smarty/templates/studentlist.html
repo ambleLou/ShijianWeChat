@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link href="../../dist/css/vendor/bootstrap.min.css" rel="stylesheet">
+    <link href="../../dist/css/flat-ui.css" rel="stylesheet">
+
+
+    <script src="../../dist/js/vendor/jquery.min.js" ></script>
+    <script src="../../dist/js/vendor/html5shiv.js"></script>
+    <script src="../../dist/js/vendor/respond.min.js"></script>
+    <script src="../../dist/js/flat-ui.js"></script>
+</head>
+<body>
+
+        <!-- Fixed navbar -->
+        <nav class="navbar navbar-default navbar-fixed-top">
+            <div class="container">
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                    <a class="navbar-brand" href="#">Project name</a>
+                </div>
+                <div id="navbar" class="collapse navbar-collapse">
+                    <ul class="nav navbar-nav">
+                        <li class="active"><a href="companyindex.php">首页</a></li>
+                        <li><a href="jobinsert.php">录入兼职信息</a></li>
+                        <li><a href="jobnobegin.php">查看已发布的兼职</a></li>
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li><a href="#">Action</a></li>
+                                <li><a href="#">Another action</a></li>
+                                <li><a href="#">Something else here</a></li>
+                                <li role="separator" class="divider"></li>
+                                <li class="dropdown-header">Nav header</li>
+                                <li><a href="#">Separated link</a></li>
+                                <li><a href="#">One more separated link</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div><!--/.nav-collapse -->
+            </div>
+        </nav>
+        <br/>
+        <hr>
+        <div class="container-fluid">
+
+        <div class="row">
+        <h4><span class="fui-arrow-left" ></span>已报名的学生列表</h4>
+        </div>
+        <table class="table table-bordered">
+            <thead>
+                <td>用户昵称</td><td>真实姓名</td><td>身份证号码</td><td>QQ</td><td>性别</td><td>身高</td>
+                <td>体重</td><td>毕业院校</td><td>所学专业</td><td>求职意向</td><td>健康证</td>
+                <td>支付宝账号</td><td>状态</td>
+            </thead>
+            <tbody>
+            <tr id="1_self_info">
+                <td>飞天蝙蝠</td><td>柯镇恶</td><td>443221177202034589</td><td>458263987</td><td>男</td><td>176</td>
+                <td>75kg</td><td>西南交通大学</td><td>降魔仗</td><td><font style="font-size: smaller">客服 传单 伙夫 试吃</font></td><td>无</td>
+                <td>1157894852</td><td><div class="span2">
+                <a href="#" id="0_1" class="btn btn-success btn-block" onclick="statusCheck(this)">确认录用</a>
+            </div></td>
+            </tr>
+            <tr id="1_self_judge">
+                <td>自我介绍</td><td colspan="12">
+                吃苦耐劳，眼睛失明，耳朵灵敏，武艺高强，与韩小莹、朱聪、等结义兄弟，被称为江南七怪
+            </td>
+            </tr>
+            <tr id="12_self_info">
+                <td>西毒欧阳锋</td><td>欧阳锋</td><td>443221177202038899</td><td>586947321</td><td>男</td><td>176</td>
+                <td>85kg</td><td>西域白驼山</td><td>蛤蟆功</td><td><font style="font-size: smaller">掌柜 杀手 贩毒 app试玩</font></td><td>有</td>
+                <td>1157894852</td><td ><div class="span2">
+                <a href="#" id="0_12" class="btn btn-danger btn-block" onclick="statusCheck(this)">已录用</a>
+                </div></td>
+            </tr>
+            <tr id="12_self_judge">
+                <td>自我介绍</td><td colspan="12">
+                反派大BOSS，一次华山论剑与当世几大高手闻名于世，一代宗师，身兼九阴真经和蛤蟆功两大奇功，在二次华山论剑中获得天下第一，心智失常
+                霸道无情，常常以怨报德，以作恶为乐，后来与洪七公相斗死于华山之巅
+            </td>
+            </tr>
+            <tr id="16_self_info">
+                <td>张三丰</td><td>张君宝</td><td>443221177202038899</td><td>586947321</td><td>男</td><td>170</td>
+                <td>65kg</td><td>西域白驼山</td><td>蛤蟆功</td><td><font style="font-size: smaller">太极拳教授 健美教练 武术指导师</font></td><td>有</td>
+                <td>1157894852</td><td ><div class="span2">
+                <a href="#" id="0_16" class="btn btn-danger btn-block" onclick="statusCheck(this)">已录用</a>
+            </div></td>
+            </tr>
+            <tr id="16_self_judge">
+                <td>自我介绍</td><td colspan="12">
+
+            </td>
+            </tr>
+            </tbody>
+
+        </table>
+
+    </div>
+    <script type="text/javascript" >
+        $(document).ready(
+
+        );
+        statusCheck=function(e){
+            alert(e.id);
+            $.ajax(
+                    {
+                        type:'GET',
+                        url:'',
+                        data:{'userID': e.id,'status':1}
+
+                    }
+            );
+        }
+
+    </script>
+</body>
+</html>

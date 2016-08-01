@@ -1,0 +1,216 @@
+<article data-role="article" id="article_register" data-scroll="verticle" style="bottom:60px;">
+    <div class="scroller">
+        <div class="titlebar">
+            <h1>欢迎注册</h1>
+        </div>
+
+        <form id="RegisterForm" autocomplete="off" oninput="range_output.value=parseInt(range.value)" class="form-common"
+              name="RegisterForm"  action="reg_chk.php" method="post"  >
+            <label class="label-left ">
+                <i class="fa fa-phone fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;电话号码<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="Phone" name="Phone" type="text" placeholder="请输入电话号码"  />
+                <!--<input id="c_Phone" name="c_Phone" type="hidden" value="not" >
+      			<div id="Phone1"><font color="#999999">请输入电话</font></div>-->
+            </label>
+            <hr/>
+            <label class="label-left">
+                <i class="fa fa-shield fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;验证码<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="Verification" type="text" placeholder="请输入验证码" autocomplete="on" style="width: 49%;float: left;"/>
+                <!--<button id="btnVerify" class="button"  style="width: 50%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;" >获取验证码</button>-->
+                <input type="button" id="btn" class="button" style="width: 50%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;background: none;color: #1abc9c"   value="获取验证码"/>
+            </label>
+            <hr/>
+            <label class="label-left">
+                <i class="fa fa-lock fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;&nbsp;密码<span style="color: red">*</span>
+            </label>
+            <label class="label-right">
+                <input id="Password" name="Password" type="password" placeholder="请输入密码" autocomplete="on"/>
+            </label>
+            <hr/>
+            <label class="label-left">
+                <i class="fa fa-gift fa-1-5x"></i>
+                &nbsp;&nbsp;&nbsp;邀请码
+            </label>
+            <label class="label-right">
+                <input id="Invitation" name="Invitation" type="text" placeholder="请输入邀请码"/>
+            </label>
+            <hr/>
+            <div class="card noborder">
+                <a id="submit" class="button submit width-full text-center" style="background-color: #1abc9c">
+                    <i class="fa fa-send fa-adjust" style="color: #FFFFFF"></i>
+                    提交
+                </a>
+            </div>
+        </form>
+
+    </div>
+</article>
+
+<script>
+    var rand='';
+    function ValidateRequired(field, alerttxt) {
+        if (field == null || field == "") {
+            A.showToast(alerttxt);
+            return false;
+        }
+        return true;
+    }
+    //正则验证
+    function VerificationReg(field, regStr, alerttxt) {
+        var reg = eval(regStr);
+        if (field == null || field == "")
+            return true;
+        if (!reg.test(field)) {
+            A.showToast(alerttxt);
+            return false;
+        }
+        else {
+            return true;
+        }
+    }
+    //单选多选验证
+    function ValidateRequiredByArray(field, alerttxt) {
+        var ischecked = 0;
+        for (var i = 0; i < field.length; i++) {
+            if (field[i].checked)
+                ischecked = 1;
+        }
+        if (ischecked == 0) {
+            A.showToast(alerttxt);
+            return false;
+        }
+        return true;
+    }
+    /*function PhoneVerification(field, alerttxt) {
+        var reg = /^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/g;
+        with (field) {
+            if (!reg.test(value)) {
+                A.showToast(alerttxt,2);
+                return false;
+            }else {
+                var phone=reg.test(value);
+                var phonechk=PhoneChkAjax(phone);
+                if(false==phonechk){
+                    A.showToast("该号码已经被注册",3);
+                    return false;
+                }else{
+                    return true;
+                }
+            }
+        }
+    }*/
+
+    function getRand(){
+        var rand="";
+        for(var i=0;i<6;i++)
+        {
+            rand+=Math.floor(Math.random()*10);
+        }
+        return rand;
+    }
+
+    function PhoneChkAjax(phone){
+        var ans;
+        $.ajax({
+            type: 'GET',
+            url: "chkPhone.php",
+            dataType: 'json',
+            data: {Phone: (phone)},
+            async:false,
+            success: function (data) {
+                if("false"==data['reback']){
+                    ans="false";
+                }else{
+                    ans="true";
+                }
+            }
+        });
+        return ans;
+    }
+
+    $('#submit').on(A.options.clickEvent, function Verification() {
+        //alert("提交");
+        if (!ValidateRequired($('#Phone').val(), "请输入手机号码!"))
+            return false;
+        else if (!VerificationReg($('#Phone').val(),'/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/g', "请输入正确的手机号码!"))
+            return false;
+        else if ("false"==PhoneChkAjax($('#Phone').val())){
+            //alert("该号码已经被注册");
+            A.showToast("该号码已经被注册",5);
+            return false;
+        }
+        else if (!ValidateRequired($('#Password').val(), "请输入密码!")){
+            //alert("请输入密码!");
+            return false;
+        }
+        else if (!ValidateRequired($('#Verification').val(), "请输入验证码!"))
+            return false;
+        else if (rand==''){
+            A.showToast("请获取验证码",5);
+            return false;
+        }
+        else if(rand!=$('#Verification').val()){
+            A.showToast("验证码错误",5);
+            return false;
+        }
+
+        document.RegisterForm.submit();
+    });
+
+    $('#btn').on(A.options.clickEvent,function showtime(){
+
+        if(document.getElementById("btn").disabled==false){
+
+            if (!ValidateRequired($('#Phone').val(), "请输入手机号码!"))
+                return false;
+            else if (!VerificationReg($('#Phone').val(),'/^(0|86|17951)?(13[0-9]|15[012356789]|17[678]|18[0-9]|14[57])[0-9]{8}$/g', "请输入正确的手机号码!"))
+                return false;
+            else if ("false"==PhoneChkAjax($('#Phone').val())){
+                A.showToast("该号码已经被注册",5);
+                return false;
+            }else{
+                rand=getRand();
+                var phone=$('#Phone').val();
+                $.ajax({
+                 type: 'GET',
+                 url: "sendMsg.php",
+                 dataType: 'json',
+                 data: {Phone: (phone),rand:(rand)},
+                 success: function (data) {
+                 if("true"==data['result'].success){
+                 document.getElementById("btn").disabled=true;
+                 update_p(0);
+                 }else{
+                 //alert("验证码发送失败");
+                 A.showToast("验证码发送失败",5);
+                 return false;
+                 }
+                 }
+                 });
+            }
+        }
+
+
+    });
+
+    function update_p(num) {
+        if(num == 120) {
+            document.getElementById("btn").value =" 重新发送 ";
+            document.getElementById("btn").disabled=false;
+        }
+        else {
+            printnr = 120-num;
+            document.getElementById("btn").value = "" + printnr +"秒后重发";
+            window.setTimeout(function(){
+                update_p(num+1);
+            }, 1000);
+        }
+    }
+</script>

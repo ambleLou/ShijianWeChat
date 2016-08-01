@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="../../dist/css/vendor/bootstrap.min.css">
+    <link rel="stylesheet" href="../../dist/css/flat-ui.min.css">
+
+
+
+    <!-- Bootstrap core CSS -->
+   
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    
+    
+    <title>{ $title }</title>
+<script language="javascript" src="../../js/createxmlhttp.js"></script>
+<script language="javascript" src="../../js/companyregisterCheck.js"></script>
+ </head>
+<body onLoad="javascript:companyregister.Name.focus()">
+
+ 
+<div class="container" align="center">
+ <form  id="companyregister" name="companyregister" action="companyreg_chk.php" method="post" onSubmit="return chkinput(this) " role="form" class="form-horizontal">
+
+    	<h4 align="center">新公司注册</h4>
+
+     <div class="form-group form-group-lg">
+         <label class="col-sm-2 control-label">公司用户名:<font color="red">*</font></label>
+     <div class="col-sm-6">
+          <input class="form-control" id="Name" name="Name" placeholder="请输入用户名" type="text" onBlur="javascript:chkName(companyregister)"  onMouseOver="this.style.backgroundColor='#ffffff'" onMouseOut="this.style.backgroundColor='#e8f4ff'" /><input id="c_Name" name="c_Name" type="hidden" value="not" >&nbsp;
+     </div>
+         <label class="col-sm-3" id="Name1"></label>
+     </div>
+
+     <div class="form-group form-group-lg">
+         <label class="col-sm-2 control-label">公司全名：<font color="red">*</font></label>
+         <div class="col-sm-6">
+             <input class="form-control" id="FullName" name="FullName" placeholder="请输入公司全名" type="text" onBlur="javascript:chkName(companyregister)"  onMouseOver="this.style.backgroundColor='#ffffff'" onMouseOut="this.style.backgroundColor='#e8f4ff'" />
+         </div>
+         <label class="col-sm-3" id="FullName1"></label>
+     </div>
+
+     <div class="form-group form-group-lg">
+         <label class="col-sm-2 control-label">注册密码：<font color="red">*</font></label>
+         <div class="col-sm-6">
+             <input class="form-control" id="Password" name="Password" placeholder="请输入注册密码" type="password" onBlur="javascript:chkPassword1(companyregister)"  onMouseOver="this.style.backgroundColor='#ffffff'" onMouseOut="this.style.backgroundColor='#e8f4ff'" />
+         </div>
+         <label class="col-sm-3" id="Password11"></label>
+     </div>
+
+     <div class="form-group form-group-lg">
+         <label class="col-sm-2 control-label">注册密码：<font color="red">*</font></label>
+         <div class="col-sm-6">
+             <input class="form-control" id="Password2" name="Password2" placeholder="确认输入注册密码" type="password" onBlur="javascript:chkPassword2(companyregister)"  onMouseOver="this.style.backgroundColor='#ffffff'" onMouseOut="this.style.backgroundColor='#e8f4ff'" />
+         </div>
+         <label class="col-sm-3" id="Password21"></label>
+     </div>
+
+     <div class="form-group ">
+         <label class="col-sm-2 control-label">公司简介：<font color="red">*</font></label>
+         <div class="col-sm-6">
+             <textarea  rows="3" class="form-control" id="Introduct" type="text" name="Introduct" /></textarea>
+         </div>
+         <label class="col-sm-3" id="Introduct1"></label>
+     </div>
+
+    <div class="form-group" align="center">
+        <button type="submit" class="btn-success btn" >提交</button>
+        <button type="reset" class="btn-default btn" >重置</button>
+
+    </div>
+
+
+
+      <div align="center"  style="color:#FF0000">带“*”号的为必填项</div>
+
+
+  </form>
+
+ </div>
+
+
+</body>
+
+</html>

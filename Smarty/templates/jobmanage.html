@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico">
+    <link rel="stylesheet" href="../../dist/css/vendor/bootstrap.min.css">
+    <link href="../../dist/css/flat-ui.css" rel="stylesheet">
+    <title>实兼</title>
+
+    <!-- Bootstrap core CSS -->
+    <link href="//cdn.bootcss.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="sticky-footer-navbar.css" rel="stylesheet">
+
+    <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
+    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="../../assets/js/ie-emulation-modes-warning.js"></script>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="//cdn.bootcss.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="//cdn.bootcss.com/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+<script language="javascript" src="js/createxmlhttp.js"></script>
+<script language="javascript" src="js/userDetail.js"></script>
+<title>{$title}</title>
+</head>
+
+<body>
+ <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">Project name</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="companyindex.php">首页</a></li>
+            <li><a href="jobinsert.php">录入兼职信息</a></li>
+            <li><a href="jobDetail.php">查看已发布的兼职</a></li>
+            <li class="dropdown">
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
+              <ul class="dropdown-menu">
+                <li><a href="#">Action</a></li>
+                <li><a href="#">Another action</a></li>
+                <li><a href="#">Something else here</a></li>
+                <li role="separator" class="divider"></li>
+                <li class="dropdown-header">Nav header</li>
+                <li><a href="#">Separated link</a></li>
+                <li><a href="#">One more separated link</a></li>
+              </ul>
+            </li>
+          </ul>
+        </div><!--/.nav-collapse -->
+      </div>
+    </nav>
+   <hr>
+
+   <form class="well form-search form-group" id="searchjob" method="post" action="">
+     <label class="col-sm-2 ">按条件搜索兼职</label>
+     <input type="text" class="input-medium search-query">
+     <button type="submit" class="btn btn-primary">搜索</button>
+     <div class="col-sm-4 " >
+       <label class="checkbox-inline">
+         <input type="radio" name="jobstatus" id="optionsRadios3"
+                value="option1" checked> 进行中的兼职
+       </label>
+       <label class="checkbox-inline">
+         <input type="radio" name="jobstatus" id="optionsRadios4"
+                value="option2"> 已完成的兼职
+       </label>
+       <label class="checkbox-inline">
+         <input type="radio" name="jobstatus" id="optionsRadios5"
+                value="option1" checked> 未开始的兼职
+       </label>
+     </div>
+   </form>
+   <table class="table  table-bordered" id="jobnobegin" style="display: block">
+     <!-- 包括显示兼职信息和一个学生列表  -->
+     <thead>
+     <td>兼职ID</td><td>兼职名称</td><td>发布商家</td><td>发布时间</td><td>进行状态</td><td>兼职地点</td><td>开始时间</td>
+     <td>结束时间</td><td>兼职类型</td><td>报名人数</td><td>每日工资</td><td>查看报名</td>
+     </thead>
+     <tbody>
+
+     <tr>
+
+       <td>1</td><td>App试玩</td><td>百度</td><td>2015-11-29</td><td>未开始</td><td>犀浦百伦广场电影院</td><td>2015-12-1|9:00</td>
+       <td>2015-12-5|6:00pm</td><td>试玩</td><td>12人/20人</td><td>100元</td><td><a href="studentlist.html"><button class="btn-primary" id="1">查看报名列表</button></a></td>
+
+     </tr>
+
+     <tr>
+
+       <td>12</td><td>App试玩</td><td>腾讯</td><td>2015-11-29</td><td>未开始</td><td>沙湾会展中心群星街22号</td><td>2015-12-1|9:00</td>
+       <td>2015-12-5|6:00pm</td><td>客服</td><td>12人/20人</td><td>120元</td><td><a href="studentlist.html"><button class="btn-primary" id="12">查看报名列表</button></a></td>
+
+     </tr>
+
+     </tbody>
+
+   </table>
+   <table class="table table-bordered" id="jobworking">
+
+   </table>
+   <table class="table table-bordered" id="jobfinished">
+
+    </table>
+   <table class="table table-bordered" id="jobsearch">
+
+   </table>
+
+
+<!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="//cdn.bootcss.com/jquery/1.11.3/jquery.min.js"></script>
+    <script src="//cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+    <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
+    <script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>
+</body>
+</html>
